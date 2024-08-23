@@ -1,0 +1,32 @@
+{
+  "dashboard": {
+    "categories": [
+      {
+        "id": "category1",
+        "name": "Category 1",
+        "widgets": [
+          {
+            "id": "widget1",
+            "type": "chart",
+            "title": "Sales Overview",
+            "config": {
+              "dataSource": "sales_data",
+              "chartType": "bar",
+              "xAxisLabel": "Months",
+              "yAxisLabel": "Sales"
+            }
+          },
+          {
+            "id": "widget2",
+            "type": "table",
+            "title": "Top Products",
+            "config": {
+              "dataSource": "product_data",
+              "columns": ["Product Name", "Sales", "Quantity"]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
