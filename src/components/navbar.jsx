@@ -1,17 +1,19 @@
+import { FaSearch } from "react-icons/fa";
+
 const Navbar = () => {
   return (
     <>
-      <nav className="bg-blue-600 p-4 flex justify-between items-center">
-        <h1 className="text-white text-2xl font-bold">MyApp</h1>
-        <div className="flex items-center">
+      {/* navigation bar with a widget searchbar */}
+      <nav className="bg-white border-b p-4 h-10 w-auto flex justify-between items-center">
+        <h1 className="text-gray-800 w-auto text-base font-bold"> Dashboard</h1>
+
+        <div className="flex relative items-center py-2 w-80 ">
+          <FaSearch className="absolute h-3 w-3 left-2 text-gray-400" />
           <input
             type="text"
-            placeholder="Search..."
-            className="px-4 py-2 rounded-l-md border-0"
+            placeholder="Search widget"
+            className="px-6 py-[.11rem] w-full bg-color rounded-md border text-sm "
           />
-          <button className="bg-blue-800 text-white px-4 py-2 rounded-r-md">
-            Search
-          </button>
         </div>
       </nav>
     </>

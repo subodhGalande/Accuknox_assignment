@@ -2,28 +2,18 @@
   "dashboard": {
     "categories": [
       {
-        "id": "category1",
-        "name": "Category 1",
+        "id": "Cat-CSPM",
+        "name": "CSPM Executive Dashboard",
         "widgets": [
           {
-            "id": "widget1",
-            "type": "chart",
-            "title": "Sales Overview",
-            "config": {
-              "dataSource": "sales_data",
-              "chartType": "bar",
-              "xAxisLabel": "Months",
-              "yAxisLabel": "Sales"
-            }
+            "id": "CSPM1",
+            "title": "Cloud Accounts",
+            "text": "In the vast expanse of the digital sky, cloud technology floats as the backbone of modern innovation. Seamlessly scalable, it connects people and data across the globe, turning once-distant resources into instantly accessible tools. From virtual servers humming in unseen data centers to real-time analytics powering critical decisions, the cloud transforms how we work, collaborate, and innovate. "
           },
           {
-            "id": "widget2",
-            "type": "table",
-            "title": "Top Products",
-            "config": {
-              "dataSource": "product_data",
-              "columns": ["Product Name", "Sales", "Quantity"]
-            }
+            "id": "CSPM2",
+            "title": "Cloud Account Risk Assessment",
+            "text": "In the dynamic landscape of cloud computing, safeguarding digital assets requires a meticulous approach to Cloud Account Risk Assessment. This process involves identifying potential vulnerabilities, such as unauthorized access, misconfigured permissions, and weak authentication protocols. "
           }
         ]
       }
