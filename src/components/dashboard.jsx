@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "./navbar";
 import WidgetCard from "./widgetCard";
-import AddWidgetCard from "./addWidgetCard";
+
 import SidebarComponent from "./widgetMenuSide";
 
 const Dashboard = () => {
@@ -43,6 +43,7 @@ const Dashboard = () => {
         Error: {error.message}
       </div>
     );
+
   return (
     <>
       {/*Title and Add Widget button ribbon */}
@@ -53,9 +54,8 @@ const Dashboard = () => {
           <h1 className="w-auto h-full text-md font-semibold">
             CNAPP Dashboard
           </h1>
-          <button onClick={toggle}>
-            <SidebarComponent />
-          </button>
+
+          <SidebarComponent onClick={toggle} data={data} />
         </div>
 
         {data &&
@@ -73,10 +73,6 @@ const Dashboard = () => {
                     error={error}
                   />
                 ))}
-
-                <div onClick={toggle}>
-                  <AddWidgetCard />{" "}
-                </div>
               </div>
             </div>
           ))}

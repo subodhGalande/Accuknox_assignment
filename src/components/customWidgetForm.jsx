@@ -1,6 +1,7 @@
 import { IoMdAdd } from "react-icons/io";
 
-const CustomWidgetForm = () => {
+const CustomWidgetForm = ({ category }) => {
+  console.log(category);
   return (
     <>
       <form className=" w-full border-b px-4 pb-4 h-fit">
