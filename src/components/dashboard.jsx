@@ -60,7 +60,7 @@ const Dashboard = () => {
 
         {data &&
           data.categories.map((category) => (
-            <div key={category.id} className="w-auto mx-10 flex flex-col">
+            <div key={category.id} className="w-auto mx-10 mb-8 flex flex-col">
               <h2 className=" py-2  items-center font-semibold text-sm">
                 {category.name}
               </h2>
