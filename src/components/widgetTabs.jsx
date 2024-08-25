@@ -15,7 +15,7 @@ function WidgetTabs() {
     <>
       {" "}
       <div className="w-full h-full flex flex-col mx-auto">
-        <div className="flex border-b border-gray-200">
+        <div className="flex border-b  border-gray-200">
           {tabs.map((tab) => (
             <button
               key={tab.id}

@@ -1,5 +1,5 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 import Navbar from "./navbar";
 import WidgetCard from "./widgetCard";
 import AddWidgetCard from "./addWidgetCard";
@@ -7,10 +7,42 @@ import SidebarComponent from "./widgetMenuSide";
 
 const Dashboard = () => {
   const [Open, setOpen] = useState(false);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const Base_URL = "http://localhost:8000/dashboard";
 
   const toggle = () => {
     setOpen(!Open);
   };
+
+  useEffect(() => {
+    axios
+      .get(Base_URL)
+      .then((response) => {
+        setData(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading)
+    return (
+      <div className="flex w-full h-screen text-2xl font-bold justify-center items-center animate-pulse">
+        Loading...
+      </div>
+    );
+
+  if (error)
+    return (
+      <div className="flex w-full h-screen text-2xl font-bold justify-center items-center">
+        Error: {error.message}
+      </div>
+    );
   return (
     <>
       {/*Title and Add Widget button ribbon */}
@@ -25,17 +57,29 @@ const Dashboard = () => {
             <SidebarComponent />
           </button>
         </div>
-        <div className="w-auto mx-10 flex flex-col">
-          <h2 className=" py-2  items-center font-semibold text-sm">
-            CSPM Executive Dashboard
-          </h2>
-          <div className="flex justify-start flex-wrap gap-2 ">
-            <WidgetCard />
-            <button onClick={toggle}>
-              <AddWidgetCard />{" "}
-            </button>
-          </div>
-        </div>
+
+        {data &&
+          data.categories.map((category) => (
+            <div key={category.id} className="w-auto mx-10 flex flex-col">
+              <h2 className=" py-2  items-center font-semibold text-sm">
+                {category.name}
+              </h2>
+              <div className="flex justify-start flex-wrap gap-2 ">
+                {category.widgets.map((widget) => (
+                  <WidgetCard
+                    key={widget.id}
+                    widgetTitle={widget.title}
+                    widgetText={widget.text}
+                    error={error}
+                  />
+                ))}
+
+                <div onClick={toggle}>
+                  <AddWidgetCard />{" "}
+                </div>
+              </div>
+            </div>
+          ))}
       </div>
     </>
   );

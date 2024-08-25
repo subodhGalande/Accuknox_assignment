@@ -7,7 +7,7 @@ const CustomWidgetForm = () => {
         <div className="mb-5 w-3/4">
           <label
             htmlFor="title"
-            className="block mb-2 text-sm font-medium text-gray-900"
+            className="block mb-2 text-left text-sm font-medium text-gray-900"
           >
             Widget Title
           </label>
@@ -21,7 +21,7 @@ const CustomWidgetForm = () => {
         <div className="mb-5 w-3/4">
           <label
             htmlFor="text"
-            className="block mb-2 text-sm font-medium text-gray-900"
+            className="block mb-2 text-left text-sm font-medium text-gray-900"
           >
             Widget Text{" "}
           </label>

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { IoMdAdd, IoMdClose } from "react-icons/io";
 import WidgetTabs from "./widgetTabs";
 
@@ -27,8 +27,8 @@ const SidebarComponent = () => {
         type="button"
         className="flex gap-2 text-gray-500 hover:scale-95 duration-150 h-52 w-96 justify-center items-center  bg-white rounded-xl border  "
       >
-        {" "}
-        <IoMdAdd className="h-5 w-5" /> Add Widget{" "}
+        <IoMdAdd className="h-5 w-5" />
+        Add Widget
       </button>
 
       {/* The modal element */}

@@ -8,12 +8,28 @@
           {
             "id": "CSPM1",
             "title": "Cloud Accounts",
-            "text": "In the vast expanse of the digital sky, cloud technology floats as the backbone of modern innovation. Seamlessly scalable, it connects people and data across the globe, turning once-distant resources into instantly accessible tools. From virtual servers humming in unseen data centers to real-time analytics powering critical decisions, the cloud transforms how we work, collaborate, and innovate. "
+            "text": "In the vast expanse of the digital sky, cloud technology floats as the backbone of modern innovation. Seamlessly scalable,   "
           },
           {
             "id": "CSPM2",
             "title": "Cloud Account Risk Assessment",
-            "text": "In the dynamic landscape of cloud computing, safeguarding digital assets requires a meticulous approach to Cloud Account Risk Assessment. This process involves identifying potential vulnerabilities, such as unauthorized access, misconfigured permissions, and weak authentication protocols. "
+            "text": "In the dynamic landscape of cloud computing, safeguarding digital assets requires a meticulous approach to Cloud Account Risk Assessment. "
+          }
+        ]
+      },
+      {
+        "id": "Cat-Cloud",
+        "name": "Cloud Account Risk Assessment",
+        "widgets": [
+          {
+            "id": "CARA1",
+            "title": "Cloud Accounts",
+            "text": "In the vast expanse of the digital sky, cloud technology floats as the backbone of modern innovation. "
+          },
+          {
+            "id": "CARA2",
+            "title": "Cloud Account Risk Assessment",
+            "text": "In the dynamic landscape of cloud computing, safeguarding digital assets requires a meticulous approach to Cloud Account Risk Assessment.  "
           }
         ]
       }
