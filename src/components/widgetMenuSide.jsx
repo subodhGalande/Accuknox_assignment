@@ -36,7 +36,7 @@ const SidebarComponent = ({ data }) => {
       <div
         style={{ display: "none" }}
         ref={modalRef}
-        className="fixed h-full w-auto -right-0 -top-0 bg-white z-10 overflow-y-scroll"
+        className="fixed h-full w-auto -right-0 -top-0 bg-white z-10 overflow-x-hidden overflow-y-scroll"
       >
         {/* Modal header with close button */}
         <nav className=" flex items-center justify-between px-6 h-8 w-auto bg-gray-700 text-white font-semibold">
