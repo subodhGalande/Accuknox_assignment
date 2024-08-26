@@ -48,7 +48,7 @@ const Dashboard = () => {
   return (
     <>
       {/*Title and Add Widget button ribbon */}
-      <Navbar />
+      <Navbar data={data} />
 
       <div className="w-auto">
         <div className=" flex w-full bg-color px-6 py-4  mx-auto items-center justify-between ">

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 
 const WidgetCard = ({ uniqueKey, widgetTitle, widgetText, categoryId }) => {
