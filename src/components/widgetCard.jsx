@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-const WidgetCard = ({ key, widgetTitle, widgetText }) => {
+const WidgetCard = ({ uniqueKey, widgetTitle, widgetText }) => {
   return (
     <>
       <div
-        key={key}
+        key={uniqueKey}
         className="flex flex-col h-52 w-96 justify-around items-start p-4 bg-white  rounded-xl border overflow-hidden"
       >
         <h1 className="text-xl font-bold text-gray-900 ">{widgetTitle}</h1>

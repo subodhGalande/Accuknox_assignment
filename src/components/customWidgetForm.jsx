@@ -1,10 +1,60 @@
+import axios from "axios";
+import { useState } from "react";
 import { IoMdAdd } from "react-icons/io";
+import { v4 as uuidv4 } from "uuid";
 
 const CustomWidgetForm = ({ category }) => {
-  console.log(category);
+  const [widgetTitle, setWidgetTitle] = useState("");
+  const [widgetText, setWidgetText] = useState("");
+  const [id, setId] = useState(uuidv4());
+
+  const data = {
+    id: id,
+    title: widgetTitle,
+    text: widgetText,
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.get(
+        `http://localhost:8000/categories?id=${category}`
+      );
+      const categoryNew = response.data[0];
+      console.log("category", categoryNew);
+
+      if (!categoryNew) {
+        throw new Error("Category not found");
+      }
+
+      if (!categoryNew.widgets) {
+        categoryNew.widgets = [];
+      }
+      categoryNew.widgets.push(data);
+
+      const updateResponse = await axios.put(
+        `http://localhost:8000/categories/${category}`,
+        categoryNew
+      );
+
+      console.log("Widget added successfully");
+    } catch (error) {
+      console.error("Error adding widget", error);
+    }
+    setWidgetTitle("");
+    setWidgetText("");
+    console.log(data);
+  };
+
   return (
     <>
-      <form className=" w-full border-b px-4 pb-4 h-fit">
+      <form
+        onSubmit={handleSubmit}
+        className=" w-full border-b px-4 pb-4 h-fit"
+      >
+        <input type="hidden" id="widgetId" value={id} readOnly />
+
         <div className="mb-5 w-3/4">
           <label
             htmlFor="title"
@@ -15,6 +65,8 @@ const CustomWidgetForm = ({ category }) => {
           <input
             type="text"
             id="widgettitle"
+            value={widgetTitle}
+            onChange={(e) => setWidgetTitle(e.target.value)}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 "
             required
           />
@@ -28,7 +80,9 @@ const CustomWidgetForm = ({ category }) => {
           </label>
           <input
             type="text"
-            id="password"
+            id="widgettext"
+            value={widgetText}
+            onChange={(e) => setWidgetText(e.target.value)}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
             required
           />

@@ -5,9 +5,9 @@ function WidgetTabs({ data, onClick }) {
   const [unCheckedids, setUnCheckedids] = useState([]);
   const [activeTab, setActiveTab] = useState(0);
   const [checkedTabs, setCheckedTabs] = useState(() => {
-    if (!data || !data.categories) return {};
+    if (!data || !data.id) return {};
     const initialCheckedTabs = {};
-    data.categories.forEach((category) => {
+    data.forEach((category) => {
       category.widgets.forEach((tab) => {
         initialCheckedTabs[tab.id] = true;
       });
@@ -48,7 +48,7 @@ function WidgetTabs({ data, onClick }) {
       <div className="w-full h-full flex flex-col mx-auto">
         <div className="flex border-b  border-gray-200">
           {data &&
-            data.categories.map((tab, index) => (
+            data.map((tab, index) => (
               <button
                 key={index}
                 onClick={() => setActiveTab(index)}
@@ -64,7 +64,7 @@ function WidgetTabs({ data, onClick }) {
         </div>
         <div className=" h-72 flex gap-3 my-5 mx-5 flex-col w-full overflow-y-scroll">
           {data &&
-            data.categories[activeTab].widgets.map((widget) => (
+            data[activeTab].widgets.map((widget) => (
               <div key={widget.id} className="flex">
                 <input
                   id="checkbox"
@@ -84,7 +84,7 @@ function WidgetTabs({ data, onClick }) {
             ))}
         </div>
 
-        <CustomWidgetForm category={data && data.categories[activeTab].id} />
+        <CustomWidgetForm category={data && data[activeTab].id} />
         <div className="flex justify-end h-10 gap-x-4 px-5 mt-5">
           <button
             onClick={handleClose}

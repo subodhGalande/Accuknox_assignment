@@ -11,7 +11,7 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const Base_URL = "http://localhost:8000/dashboard";
+  const Base_URL = "http://localhost:8000/categories";
 
   const toggle = () => {
     setOpen(!Open);
@@ -22,6 +22,7 @@ const Dashboard = () => {
       .get(Base_URL)
       .then((response) => {
         setData(response.data);
+        console.log("data:", response.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -59,7 +60,7 @@ const Dashboard = () => {
         </div>
 
         {data &&
-          data.categories.map((category) => (
+          data.map((category) => (
             <div key={category.id} className="w-auto mx-10 mb-8 flex flex-col">
               <h2 className=" py-2  items-center font-semibold text-sm">
                 {category.name}
@@ -68,6 +69,7 @@ const Dashboard = () => {
                 {category.widgets.map((widget) => (
                   <WidgetCard
                     key={widget.id}
+                    uniqueKey={widget.id}
                     widgetTitle={widget.title}
                     widgetText={widget.text}
                     error={error}

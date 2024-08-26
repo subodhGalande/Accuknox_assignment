@@ -1,38 +1,51 @@
 {
-  "dashboard": {
-    "categories": [
-      {
-        "id": "CSPM",
-        "name": "CSPM Executive Dashboard",
-        "widgets": [
-          {
-            "id": "CSPM1",
-            "title": "Cloud Accounts CSPM",
-            "text": "In the vast expanse of the digital sky, cloud technology floats as the backbone of modern innovation. Seamlessly scalable,   "
-          },
-          {
-            "id": "CSPM2",
-            "title": "Cloud Account Risk Assessment",
-            "text": "In the dynamic landscape of cloud computing, safeguarding digital assets requires a meticulous approach to Cloud Account Risk Assessment. "
-          }
-        ]
-      },
-      {
-        "id": "CWPP",
-        "name": "Cloud Account Risk Assessment",
-        "widgets": [
-          {
-            "id": "CARA1",
-            "title": "Cloud Accounts",
-            "text": "In the vast expanse of the digital sky, cloud technology floats as the backbone of modern innovation. "
-          },
-          {
-            "id": "CARA2",
-            "title": "Cloud Account Risk Assessment",
-            "text": "In the dynamic landscape of cloud computing, safeguarding digital assets requires a meticulous approach to Cloud Account Risk Assessment.  "
-          }
-        ]
-      }
-    ]
-  }
+  "categories": [
+    {
+      "id": "CSPM",
+      "name": "CSPM Executive Dashboard",
+      "widgets": [
+        {
+          "id": "CSPM1",
+          "title": "Cloud Accounts CSPM",
+          "text": "In the vast expanse of the digital sky, cloud technology floats as the backbone of modern innovation. Seamlessly scalable,   "
+        },
+        {
+          "id": "CSPM2",
+          "title": "Cloud Account Risk Assessment",
+          "text": "In the dynamic landscape of cloud computing, safeguarding digital assets requires a meticulous approach to Cloud Account Risk Assessment. "
+        },
+        {
+          "id": "d569a985-7116-4d26-a795-130cf932f9cc",
+          "title": "asdf",
+          "text": "asdf"
+        },
+        {
+          "id": "4c79164d-d166-4d19-abfd-06c7c53663b0",
+          "title": "sdd",
+          "text": "sdfag adfas df "
+        }
+      ]
+    },
+    {
+      "id": "CWPP",
+      "name": "Cloud Account Risk Assessment",
+      "widgets": [
+        {
+          "id": "CARA1",
+          "title": "Cloud Accounts",
+          "text": "In the vast expanse of the digital sky, cloud technology floats as the backbone of modern innovation. "
+        },
+        {
+          "id": "CARA2",
+          "title": "Cloud Account Risk Assessment",
+          "text": "In the dynamic landscape of cloud computing, safeguarding digital assets requires a meticulous approach to Cloud Account Risk Assessment.  "
+        },
+        {
+          "id": "d569a985-7116-4d26-a795-130cf932f9cc",
+          "title": "sadf",
+          "text": "sdaf"
+        }
+      ]
+    }
+  ]
 }
