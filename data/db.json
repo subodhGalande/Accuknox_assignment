@@ -21,6 +21,17 @@
           "text": "In the vast expanse of the digital sky, cloud technology floats as the backbone of modern innovation. Seamlessly scalable,"
         }
       ]
+    },
+    {
+      "id": "CWPP",
+      "name": "Cloud Account Risk Assessment",
+      "widgets": [
+        {
+          "id": "b8fc3031-b27c-4504-8e48-287cc0e66a73",
+          "title": "Cloud Accounts CSPM",
+          "text": "In the vast expanse of the digital sky, cloud technology floats as the backbone of modern innovation. Seamlessly scalable,"
+        }
+      ]
     }
   ]
 }

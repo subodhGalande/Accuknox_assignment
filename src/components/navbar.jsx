@@ -26,7 +26,7 @@ const Navbar = ({ data }) => {
         <h1 className="text-gray-800 w-auto text-base font-bold"> Dashboard</h1>
         <div className="flex flex-col ">
           {" "}
-          <div className="fixed items-center py-2 w-80 right-2 -top-0 ">
+          <div className="sticky items-center py-2 w-80 right-2 -top-0 ">
             <FaSearch className=" absolute h-3 w-3 left-2 top-3.5 text-gray-400" />
             <input
               onFocus={handleFocus}
@@ -39,7 +39,7 @@ const Navbar = ({ data }) => {
             />
           </div>
           {Open && (
-            <ul className="fixed right-2 top-9 px-2 w-80 gap-y-10 py-2  bg-white rounded-md">
+            <ul className="absolute right-4 top-10 px-2 w-80 gap-y-10 py-2  bg-white rounded-md">
               <li className="text-xs text-gray-400">Search Result</li>
               {searchTerm.length >= 2 && (
                 <ul className="results-list">
