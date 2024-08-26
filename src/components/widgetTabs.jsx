@@ -79,7 +79,7 @@ function WidgetTabs({ data }) {
             ))}
         </div>
         {/* List of widgets for the active tab */}
-        <div className=" h-72 flex gap-3 my-5 mx-5 flex-col w-full overflow-y-scroll">
+        <div className=" h-56 flex gap-3 my-5 mx-5 flex-col w-full overflow-y-scroll">
           {data &&
             data[activeTab].widgets.map((widget) => (
               <div key={widget.id} className="flex">
