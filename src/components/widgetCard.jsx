@@ -37,7 +37,13 @@ const WidgetCard = ({ uniqueKey, widgetTitle, widgetText, categoryId }) => {
         {" "}
         <div className="w-3/4 ">
           <h1 className="text-xl font-bold text-gray-900 ">{widgetTitle}</h1>
-          <p className=" w-full mt-5 ">{widgetText}</p>
+          {widgetText ? (
+            <p className="w-full mt-5">{widgetText}</p>
+          ) : (
+            <h1 className="text-lg font-semibold text-gray-500 mt-5">
+              No text data available
+            </h1>
+          )}
         </div>
         <div>
           <button onClick={handleClick}>

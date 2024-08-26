@@ -66,16 +66,20 @@ const Dashboard = () => {
                 {category.name}
               </h2>
               <div className="flex justify-start flex-wrap gap-2 ">
-                {category.widgets.map((widget) => (
-                  <WidgetCard
-                    categoryId={category.id}
-                    key={widget.id}
-                    uniqueKey={widget.id}
-                    widgetTitle={widget.title}
-                    widgetText={widget.text}
-                    error={error}
-                  />
-                ))}
+                {category.widgets.length > 0 ? (
+                  category.widgets.map((widget) => (
+                    <WidgetCard
+                      categoryId={category.id}
+                      key={widget.id}
+                      uniqueKey={widget.id}
+                      widgetTitle={widget.title}
+                      widgetText={widget.text}
+                      error={error}
+                    />
+                  ))
+                ) : (
+                  <h1>No data available</h1>
+                )}
               </div>
             </div>
           ))}

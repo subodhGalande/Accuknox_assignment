@@ -5,11 +5,16 @@
       "name": "CSPM Executive Dashboard",
       "widgets": [
         {
-          "id": "57d98d07-1fb7-4370-a827-38ea7141710c",
-          "title": "Cloud Accounts CSPM",
-          "text": "In the vast expanse of the digital sky, cloud technology floats as the backbone of modern innovation. Seamlessly scalable,"
+          "id": "75229e46-e6ba-41c2-ae2c-509ec8db5682",
+          "title": "hey",
+          "text": ""
         }
       ]
+    },
+    {
+      "id": "CWPP",
+      "name": "Cloud Account Risk Assessment",
+      "widgets": []
     },
     {
       "id": "CWPP",
@@ -18,18 +23,7 @@
         {
           "id": "b8fc3031-b27c-4504-8e48-287cc0e66a73",
           "title": "Cloud Accounts CSPM",
-          "text": "In the vast expanse of the digital sky, cloud technology floats as the backbone of modern innovation. Seamlessly scalable,"
-        }
-      ]
-    },
-    {
-      "id": "CWPP",
-      "name": "Cloud Account Risk Assessment",
-      "widgets": [
-        {
-          "id": "b8fc3031-b27c-4504-8e48-287cc0e66a73",
-          "title": "Cloud Accounts CSPM",
-          "text": "In the vast expanse of the digital sky, cloud technology floats as the backbone of modern innovation. Seamlessly scalable,"
+          "text": ""
         }
       ]
     }
