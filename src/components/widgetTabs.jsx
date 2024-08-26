@@ -3,9 +3,9 @@ import CustomWidgetForm from "./customWidgetForm";
 import axios from "axios";
 
 function WidgetTabs({ data }) {
-  const [checked, setChecked] = useState([]);
+  // State to track the active tab
   const [activeTab, setActiveTab] = useState(0);
-
+  // State to track which widgets are checked
   const [checkedTabs, setCheckedTabs] = useState(() => {
     if (!data) return {};
     const initialCheckedTabs = {};
@@ -18,30 +18,35 @@ function WidgetTabs({ data }) {
     return initialCheckedTabs;
   });
 
+  // Function to handle checkbox state change
   const handleCheckboxChange = (id, tabActive) => {
     setCheckedTabs(async (prevCheckedTabs) => {
+      // Update the checked state for the checkbox
       const updatedCheckedTabs = {
         ...prevCheckedTabs,
         [id]: !prevCheckedTabs[id],
       };
-
+      // If unchecked, delete the widget from the category
       if (!updatedCheckedTabs[id]) {
         try {
+          // Fetch the current category data
           const response = await axios.get(
             `http://localhost:8000/categories/${tabActive}`
           );
           const category = response.data;
 
+          // Filter out the widget to be deleted
           const updatedWidgets = category.widgets.filter(
             (widget) => widget.id !== id
           );
 
+          // Update the category with the new widgets list
           await axios.put(`http://localhost:8000/categories/${tabActive}`, {
             ...category,
             widgets: updatedWidgets,
           });
 
-          console.log(`Deleted widget with uniqueKey: ${id}`);
+          console.log(`Deleted widget with id: ${id}`);
           window.location.reload();
         } catch (error) {
           console.error(`Error deleting widget with uniqueKey: ${id}`, error);
@@ -52,17 +57,11 @@ function WidgetTabs({ data }) {
     });
   };
 
-  //   const tabs = [
-  //     { id: 0, label: "CSPM", content: "This is the content for Tab 1." },
-  //     { id: 1, label: "CWPP", content: "This is the content for Tab 2." },
-  //     { id: 2, label: "Image", content: "This is the content for Tab 3." },
-  //     { id: 3, label: "Ticket", content: "This is the content for Tab 3." },
-  //   ];
-
   return (
     <>
       {" "}
       <div className="w-full h-full flex flex-col mx-auto">
+        {/* Tab navigation buttons */}
         <div className="flex border-b  border-gray-200">
           {data &&
             data.map((tab, index) => (
@@ -79,6 +78,7 @@ function WidgetTabs({ data }) {
               </button>
             ))}
         </div>
+        {/* List of widgets for the active tab */}
         <div className=" h-72 flex gap-3 my-5 mx-5 flex-col w-full overflow-y-scroll">
           {data &&
             data[activeTab].widgets.map((widget) => (
@@ -102,7 +102,7 @@ function WidgetTabs({ data }) {
               </div>
             ))}
         </div>
-
+        {/* Form to add a new widget to the active tab */}
         <CustomWidgetForm category={data && data[activeTab].id} />
       </div>{" "}
     </>

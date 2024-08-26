@@ -4,20 +4,25 @@ import { IoMdAdd } from "react-icons/io";
 import { v4 as uuidv4 } from "uuid";
 
 const CustomWidgetForm = ({ category }) => {
+  // State to manage the title,text and Id of the widget
+
   const [widgetTitle, setWidgetTitle] = useState("");
   const [widgetText, setWidgetText] = useState("");
   const [id, setId] = useState(uuidv4());
 
+  // Data object to hold widget information
   const data = {
     id: id,
     title: widgetTitle,
     text: widgetText,
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
+      // Fetch the category data from the server using its ID
       const response = await axios.get(
         `http://localhost:8000/categories?id=${category}`
       );
@@ -27,12 +32,13 @@ const CustomWidgetForm = ({ category }) => {
       if (!categoryNew) {
         throw new Error("Category not found");
       }
-
+      // Initialize widgets array if it doesn't exist
       if (!categoryNew.widgets) {
         categoryNew.widgets = [];
       }
-      categoryNew.widgets.push(data);
+      categoryNew.widgets.push(data); // Add new widget data to the category's widgets array
 
+      // Update the category on the server with the new widget data
       const updateResponse = await axios.put(
         `http://localhost:8000/categories/${category}`,
         categoryNew
@@ -42,14 +48,18 @@ const CustomWidgetForm = ({ category }) => {
     } catch (error) {
       console.error("Error adding widget", error);
     }
+    // Clear input fields after submission
     setWidgetTitle("");
     setWidgetText("");
+
+    // Reload the page to reflect changes
     window.location.reload();
   };
 
   return (
     <>
       <form onSubmit={handleSubmit} className=" w-full  px-4 pb-4 h-fit">
+        {/* Hidden input to hold the widget ID */}
         <input type="hidden" id="widgetId" value={id} readOnly />
 
         <div className="mb-5 w-3/4">

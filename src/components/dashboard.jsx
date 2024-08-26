@@ -6,23 +6,28 @@ import WidgetCard from "./widgetCard";
 import SidebarComponent from "./widgetMenuSide";
 
 const Dashboard = () => {
+  // State to manage sidebar open/close status
   const [Open, setOpen] = useState(false);
+
+  // State to hold fetched data, loading status and state to handle error during data fetching
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const Base_URL = "http://localhost:8000/categories";
 
+  // Toggle the sidebar open/close status
   const toggle = () => {
     setOpen(!Open);
   };
+
+  // Fetch data from the API when the component mounts
 
   useEffect(() => {
     axios
       .get(Base_URL)
       .then((response) => {
         setData(response.data);
-        console.log("data:", response.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -31,6 +36,7 @@ const Dashboard = () => {
       });
   }, []);
 
+  // Render loading state
   if (loading)
     return (
       <div className="flex w-full h-screen text-2xl font-bold justify-center items-center animate-pulse">
@@ -38,6 +44,7 @@ const Dashboard = () => {
       </div>
     );
 
+  // Render error state
   if (error)
     return (
       <div className="flex w-full h-screen text-2xl font-bold justify-center items-center">
@@ -47,7 +54,7 @@ const Dashboard = () => {
 
   return (
     <>
-      {/*Title and Add Widget button ribbon */}
+      {/* Render the Navbar component with data prop */}
       <Navbar data={data} />
 
       <div className="w-auto">
@@ -58,7 +65,7 @@ const Dashboard = () => {
 
           <SidebarComponent onClick={toggle} data={data} />
         </div>
-
+        {/* Render categories and their widgets */}
         {data &&
           data.map((category) => (
             <div key={category.id} className="w-auto mx-10 mb-8 flex flex-col">
@@ -67,6 +74,7 @@ const Dashboard = () => {
               </h2>
               <div className="flex justify-start flex-wrap gap-2 ">
                 {category.widgets.length > 0 ? (
+                  // Render WidgetCard components for each widget
                   category.widgets.map((widget) => (
                     <WidgetCard
                       categoryId={category.id}
@@ -78,6 +86,7 @@ const Dashboard = () => {
                     />
                   ))
                 ) : (
+                  // Display message if no widgets are available
                   <h1>No data available</h1>
                 )}
               </div>

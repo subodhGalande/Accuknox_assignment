@@ -5,24 +5,61 @@
       "name": "CSPM Executive Dashboard",
       "widgets": [
         {
-          "id": "75229e46-e6ba-41c2-ae2c-509ec8db5682",
-          "title": "hey",
-          "text": ""
+          "id": "306ddb91-41b2-4ed9-b414-8f5a6f9176c1",
+          "title": "Cloud Accounts",
+          "text": "Securely manage, access, and synchronize your digital assets with ease through our comprehensive cloud accounts platform."
+        },
+        {
+          "id": "cd9aaa02-dcaf-4285-a77e-14c968589237",
+          "title": "Cloud Accounts Risk Management",
+          "text": "Effectively identify, assess, and mitigate risks in cloud accounts to ensure robust security and compliance."
         }
       ]
     },
     {
       "id": "CWPP",
-      "name": "Cloud Account Risk Assessment",
-      "widgets": []
-    },
-    {
-      "id": "CWPP",
-      "name": "Cloud Account Risk Assessment",
+      "name": "CWPP Dashboard",
       "widgets": [
         {
-          "id": "b8fc3031-b27c-4504-8e48-287cc0e66a73",
-          "title": "Cloud Accounts CSPM",
+          "id": "f8f650f1-8df3-4fed-b995-614b774f25dc",
+          "title": "Top 5 namespace specific alerts",
+          "text": ""
+        },
+        {
+          "id": "a2505d4e-dd32-4599-a0a9-1f7634cf159c",
+          "title": "Workload Alerts",
+          "text": "Receive real-time workload alerts to monitor performance and prevent potential bottlenecks before they impact your operations."
+        }
+      ]
+    },
+    {
+      "id": "Image",
+      "name": "Registry Scan",
+      "widgets": [
+        {
+          "id": "fc3b2c16-27ad-4da0-8bca-4b5ea3c73bd7",
+          "title": "Image Risk Assessment",
+          "text": "Conduct thorough image risk assessments to identify vulnerabilities and ensure the security of your visual assets."
+        },
+        {
+          "id": "d66a5caa-d19d-435c-8ef0-456652c2b0ae",
+          "title": "Image Security Issues",
+          "text": "Address and resolve image security issues to protect your visual assets from unauthorized access and potential breaches."
+        }
+      ]
+    },
+    {
+      "id": "Ticket",
+      "name": "Ticket Management",
+      "widgets": [
+        {
+          "id": "a8141322-9338-4ba3-b9b2-a3ae6a88dff5",
+          "title": "Ticket Count",
+          "text": "Keep track of your support efficiency with real-time ticket count monitoring."
+        },
+        {
+          "id": "07722d16-870b-4bc4-9d73-a6930a2ecc9a",
+          "title": "Pending Tickets",
           "text": ""
         }
       ]

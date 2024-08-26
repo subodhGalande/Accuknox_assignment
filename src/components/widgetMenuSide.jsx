@@ -22,6 +22,7 @@ const SidebarComponent = ({ data }) => {
 
   return (
     <div>
+      {/* Button to show the modal */}
       <button
         onClick={showModal}
         type="button"
@@ -31,12 +32,13 @@ const SidebarComponent = ({ data }) => {
         <IoMdAdd className="h-5 w-5 " /> Add Widget{" "}
       </button>
 
-      {/* The modal element */}
+      {/* Modal element for adding widgets */}
       <div
         style={{ display: "none" }}
         ref={modalRef}
         className="fixed h-full w-auto -right-0 -top-0 bg-white z-10"
       >
+        {/* Modal header with close button */}
         <nav className=" flex items-center justify-between px-6 h-8 w-auto bg-gray-700 text-white font-semibold">
           {" "}
           <h2>Add Widget</h2>
@@ -49,7 +51,8 @@ const SidebarComponent = ({ data }) => {
           Personalise your Dashboard by adding the following widget
         </h2>
         <div className="flex flex-col justify-between gap-y-4">
-          <WidgetTabs data={data} onClick={hideModal} />
+          {/* WidgetTabs component to display available widgets */}
+          <WidgetTabs data={data} />
         </div>
       </div>
     </div>

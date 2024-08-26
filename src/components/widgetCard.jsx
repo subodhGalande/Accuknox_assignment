@@ -2,29 +2,31 @@ import axios from "axios";
 import { IoMdClose } from "react-icons/io";
 
 const WidgetCard = ({ uniqueKey, widgetTitle, widgetText, categoryId }) => {
+  // Handle the click event to delete the widget
+
   const handleClick = async () => {
     try {
+      // Fetch the category data based on the categoryId
       const response = await axios.get(
         `http://localhost:8000/categories/${categoryId}`
       );
       const category = response.data;
 
+      // Filter out the widget to be deleted from the category's widgets
       const updatedWidgets = category.widgets.filter(
         (widget) => widget.id !== uniqueKey
       );
 
+      // Update the category with the new widgets list
       await axios.put(`http://localhost:8000/categories/${categoryId}`, {
         ...category,
         widgets: updatedWidgets,
       });
 
-      console.log(`Deleted widget with uniqueKey: ${uniqueKey}`);
+      // Reload the page to reflect changes
       window.location.reload();
     } catch (error) {
-      console.error(
-        `Error deleting widget with uniqueKey: ${uniqueKey}`,
-        error
-      );
+      console.error(error);
     }
   };
 
@@ -37,6 +39,7 @@ const WidgetCard = ({ uniqueKey, widgetTitle, widgetText, categoryId }) => {
         {" "}
         <div className="w-3/4 ">
           <h1 className="text-xl font-bold text-gray-900 ">{widgetTitle}</h1>
+          {/* Conditional rendering for widget text */}
           {widgetText ? (
             <p className="w-full mt-5">{widgetText}</p>
           ) : (
