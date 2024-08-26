@@ -1,11 +1,13 @@
 import { useState } from "react";
 import CustomWidgetForm from "./customWidgetForm";
+import axios from "axios";
 
-function WidgetTabs({ data, onClick }) {
-  const [unCheckedids, setUnCheckedids] = useState([]);
+function WidgetTabs({ data }) {
+  const [checked, setChecked] = useState([]);
   const [activeTab, setActiveTab] = useState(0);
+
   const [checkedTabs, setCheckedTabs] = useState(() => {
-    if (!data || !data.id) return {};
+    if (!data) return {};
     const initialCheckedTabs = {};
     data.forEach((category) => {
       category.widgets.forEach((tab) => {
@@ -16,25 +18,40 @@ function WidgetTabs({ data, onClick }) {
     return initialCheckedTabs;
   });
 
-  const handleClose = () => {
-    onClick();
-  };
-
-  const handleCheckboxChange = (id) => {
-    setCheckedTabs((prevCheckedTabs) => {
+  const handleCheckboxChange = (id, tabActive) => {
+    setCheckedTabs(async (prevCheckedTabs) => {
       const updatedCheckedTabs = {
         ...prevCheckedTabs,
         [id]: !prevCheckedTabs[id],
       };
 
       if (!updatedCheckedTabs[id]) {
-        let unChecked = [];
-        unChecked.push(id);
+        try {
+          const response = await axios.get(
+            `http://localhost:8000/categories/${tabActive}`
+          );
+          const category = response.data;
+
+          const updatedWidgets = category.widgets.filter(
+            (widget) => widget.id !== id
+          );
+
+          await axios.put(`http://localhost:8000/categories/${tabActive}`, {
+            ...category,
+            widgets: updatedWidgets,
+          });
+
+          console.log(`Deleted widget with uniqueKey: ${id}`);
+          window.location.reload();
+        } catch (error) {
+          console.error(`Error deleting widget with uniqueKey: ${id}`, error);
+        }
       }
 
       return updatedCheckedTabs;
     });
   };
+
   //   const tabs = [
   //     { id: 0, label: "CSPM", content: "This is the content for Tab 1." },
   //     { id: 1, label: "CWPP", content: "This is the content for Tab 2." },
@@ -69,7 +86,9 @@ function WidgetTabs({ data, onClick }) {
                 <input
                   id="checkbox"
                   checked={!!checkedTabs[widget.id]}
-                  onChange={() => handleCheckboxChange(widget.id)}
+                  onChange={() =>
+                    handleCheckboxChange(widget.id, data[activeTab].id)
+                  }
                   type="checkbox"
                   value={widget.id}
                   className="w-4 h-4 bg-gray-100 accent-gray-700 border-gray-300 rounded "
@@ -85,17 +104,6 @@ function WidgetTabs({ data, onClick }) {
         </div>
 
         <CustomWidgetForm category={data && data[activeTab].id} />
-        <div className="flex justify-end h-10 gap-x-4 px-5 mt-5">
-          <button
-            onClick={handleClose}
-            className="border border-gray-700 py-1 px-4 rounded-md hover:scale-95 duration-150 "
-          >
-            Cancel
-          </button>
-          <button className="border py-1 px-4 rounded-md bg-gray-700 text-white hover:scale-95 duration-150">
-            Confirm
-          </button>
-        </div>
       </div>{" "}
     </>
   );

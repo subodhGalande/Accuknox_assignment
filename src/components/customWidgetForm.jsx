@@ -49,10 +49,7 @@ const CustomWidgetForm = ({ category }) => {
 
   return (
     <>
-      <form
-        onSubmit={handleSubmit}
-        className=" w-full border-b px-4 pb-4 h-fit"
-      >
+      <form onSubmit={handleSubmit} className=" w-full  px-4 pb-4 h-fit">
         <input type="hidden" id="widgetId" value={id} readOnly />
 
         <div className="mb-5 w-3/4">
