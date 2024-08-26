@@ -44,7 +44,7 @@ const CustomWidgetForm = ({ category }) => {
     }
     setWidgetTitle("");
     setWidgetText("");
-    console.log(data);
+    window.location.reload();
   };
 
   return (

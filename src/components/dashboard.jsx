@@ -68,6 +68,7 @@ const Dashboard = () => {
               <div className="flex justify-start flex-wrap gap-2 ">
                 {category.widgets.map((widget) => (
                   <WidgetCard
+                    categoryId={category.id}
                     key={widget.id}
                     uniqueKey={widget.id}
                     widgetTitle={widget.title}
